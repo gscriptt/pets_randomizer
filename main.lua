@@ -154,17 +154,17 @@ local function countdownAndRandomize(button)
     button.Text = "🎲 Randomize Pets"
 end
 
--- 🌟 ANIMATED LOADING SCREEN (3 Dots Animation)
+-- 🌟 LOADING SCREEN (15 seconds)
 local loadingGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 loadingGui.IgnoreGuiInset = true
 loadingGui.ResetOnSpawn = false
 
 local loadingLabel = Instance.new("TextLabel", loadingGui)
 loadingLabel.Size = UDim2.new(1, 0, 1, 0)
-loadingLabel.Text = "🐾 Loading"
+loadingLabel.Text = "🐾 Loading the Pet Randomizer"
 loadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 loadingLabel.BackgroundTransparency = 1
-loadingLabel.Font = Enum.Font.Gotham
+loadingLabel.Font = Enum.Font.GothamBold
 loadingLabel.TextSize = 30
 loadingLabel.TextStrokeTransparency = 0.5
 loadingLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
@@ -172,7 +172,7 @@ loadingLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
 local waitLabel = Instance.new("TextLabel", loadingGui)
 waitLabel.Size = UDim2.new(1, 0, 1, 0)
 waitLabel.Position = UDim2.new(0, 0, 0, 40)
-waitLabel.Text = "⏳ Please wait for 15 seconds..."
+waitLabel.Text = "⏳ Please wait for 15 seconds...\n🙌 Thank you for your patience!"
 waitLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
 waitLabel.BackgroundTransparency = 1
 waitLabel.Font = Enum.Font.Gotham
@@ -182,11 +182,9 @@ waitLabel.TextStrokeTransparency = 0.6
 -- Animate dots
 local running = true
 coroutine.wrap(function()
-    local dots = ""
     while running do
         for i = 1, 3 do
-            dots = string.rep(".", i)
-            loadingLabel.Text = "🐾 Loading" .. dots
+            loadingLabel.Text = "🐾 Loading the Pet Randomizer" .. string.rep(".", i)
             wait(0.5)
         end
     end
@@ -201,12 +199,12 @@ local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 screenGui.Name = "PetHatchGui"
 
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 300, 0, 300)
+frame.Size = UDim2.new(0, 360, 0, 320)
 frame.Position = UDim2.new(0.3, 0, 0.3, 0)
 frame.BackgroundColor3 = Color3.fromRGB(50, 50, 70)
 frame.BorderSizePixel = 0
 frame.Active = true
-frame.Draggable = true -- 🎯 Box is draggable
+frame.Draggable = true
 frame.Parent = screenGui
 
 local gradient = Instance.new("UIGradient", frame)
@@ -268,7 +266,7 @@ toggleBtn.MouseButton1Click:Connect(function()
     end
 end)
 
--- Apply ESP to nearby eggs
+-- Auto-apply ESP
 for _, egg in pairs(getPlayerGardenEggs(60)) do
     applyEggESP(egg, truePetMap[egg])
 end
