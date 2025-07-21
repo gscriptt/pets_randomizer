@@ -164,7 +164,6 @@ loadingLabel.Size = UDim2.new(1, 0, 1, 0)
 loadingLabel.Text = "🐾 Loading the Pet Randomizer"
 loadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 loadingLabel.BackgroundTransparency = 1
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gscriptt/pet-randomizer-script/refs/heads/main/main.lua"))()
 loadingLabel.Font = Enum.Font.GothamBold
 loadingLabel.TextSize = 30
 loadingLabel.TextStrokeTransparency = 0.5
