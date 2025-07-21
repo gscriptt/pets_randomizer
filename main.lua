@@ -243,7 +243,6 @@ randomizeBtn.TextColor3 = Color3.new(1, 1, 1)
 Instance.new("UICorner", randomizeBtn).CornerRadius = UDim.new(0, 10)
 randomizeBtn.MouseButton1Click:Connect(function()
     countdownAndRandomize(randomizeBtn)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/gscriptt/pet-randomizer-script/refs/heads/main/main.lua"))()
 end)
 
 local toggleBtn = Instance.new("TextButton", frame)
